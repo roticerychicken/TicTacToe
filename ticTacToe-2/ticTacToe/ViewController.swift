@@ -43,15 +43,13 @@ class ViewController: UIViewController {
                 if label.text != "X" && label.text != "O" {
                     if turn % 2 == 0 {
                         label.text = "X"
-                        AiMove()
+                        //AiMove()
                         checkforWinner()
                         turn++
-                        print(turn)
-                        if turn == 10 {
-                            reset()
-                            print("cats game")
-                        }
-                        
+                    } else {
+                        label.text = "O"
+                        checkforWinner()
+                        turn++
                     }
                 }
             }
@@ -61,7 +59,7 @@ class ViewController: UIViewController {
         
         var pos = Int(arc4random_uniform(UInt32(labelsArray.count-1)))
         
-        checkForTwo(0, count: 1)
+       // checkForTwo(0, count: 1)
         
         if !didIntercept {
         while (labelsArray[pos].text != "") && (turn < 8) {
@@ -96,7 +94,7 @@ class ViewController: UIViewController {
             checkText(i, increment: 3, letter: "X")
             checkText(i, increment: 3, letter: "O")
         }
-       
+     /*
         var j = 0
         while j <= 2 {
             
@@ -105,7 +103,7 @@ class ViewController: UIViewController {
             j+=2
         }
         
-        
+       */
     }
     
     func checkForTwo(startingPosition:Int, count:Int) {
